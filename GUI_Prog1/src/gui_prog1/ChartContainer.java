@@ -31,36 +31,15 @@ public final class ChartContainer extends JScrollPane {
     /*
     Constructor
     */
-    public ChartContainer( Records input_record )
+    public ChartContainer()
     {
-        // record initialization
-        record = input_record;
-        
-        // index initialization
-        year_i = 0;
-        month_i = 0;
-        day_i = 0;
-        
-        // view initialization
-        currView = ViewEnum.YEAR;
         
         // panel initialization
         panel = new JPanel();
         panel.setLayout( new BoxLayout(panel, BoxLayout.Y_AXIS) );
         
-        // chart initialization
-        tempChart = createChart( createYearDataset("Temp", ChartEnum.TEMP),
-                "Temperature", "Degrees Fahrenheit");
-        humChart = createChart( createYearDataset("Hum", ChartEnum.HUM),
-                "Humidity", "Percent");
-        baroChart = createChart( createYearDataset("Baro", ChartEnum.BARO),
-                "Barometric Pressure", "Inches of Mercury");
-        windChart = createChart( createYearDataset("Wind", ChartEnum.WIND),
-                "Wind Speed", "Miles Per Hour");
-        uvChart = createChart( createYearDataset("UV", ChartEnum.UV),
-                "UV Index", "UV Radiation Dose");
-        rainChart = createChart( createYearDataset("Rain", ChartEnum.RAIN),
-                "Rainfall", "Inches");
+        // panel size
+        panel.setPreferredSize( new Dimension(900,1800));
         
         // chartpanel initialization
         tempPanel = new ChartPanel(tempChart);
@@ -78,14 +57,40 @@ public final class ChartContainer extends JScrollPane {
         panel.add(uvPanel);
         panel.add(rainPanel);
         
-        // panel size
-        panel.setPreferredSize( new Dimension(900,1800));
-        
         // scrollpane settings
         setViewportView(panel);
         setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         setPreferredSize( new Dimension(930,630));
+    }
+    
+    public void init( Records input_record )
+    {
+    
+        // record initialization
+        record = input_record;
+        
+        // index initialization
+        year_i = 0;
+        month_i = 0;
+        day_i = 0;
+        
+        // view initialization
+        currView = ViewEnum.YEAR;
+        
+        // chart initialization
+        tempChart = createChart( createYearDataset("Temp", ChartEnum.TEMP),
+                "Temperature", "Degrees Fahrenheit");
+        humChart = createChart( createYearDataset("Hum", ChartEnum.HUM),
+                "Humidity", "Percent");
+        baroChart = createChart( createYearDataset("Baro", ChartEnum.BARO),
+                "Barometric Pressure", "Inches of Mercury");
+        windChart = createChart( createYearDataset("Wind", ChartEnum.WIND),
+                "Wind Speed", "Miles Per Hour");
+        uvChart = createChart( createYearDataset("UV", ChartEnum.UV),
+                "UV Index", "UV Radiation Dose");
+        rainChart = createChart( createYearDataset("Rain", ChartEnum.RAIN),
+                "Rainfall", "Inches");
         
         // header settings
         headerView = new JViewport();
@@ -587,7 +592,7 @@ public final class ChartContainer extends JScrollPane {
     // Variable declarations
     private final JPanel panel;
     
-    private final Records record;
+    private Records record;
     
     private enum ChartEnum{
         TEMP, HUM, BARO, WIND, UV, RAIN
@@ -617,8 +622,8 @@ public final class ChartContainer extends JScrollPane {
     private final ChartPanel uvPanel;
     private final ChartPanel rainPanel;
     
-    private final JViewport headerView;
-    private final JLabel headerLabel;
+    private JViewport headerView;
+    private JLabel headerLabel;
     
     private final String[] monthName = {
         "January", "February", "March", "April", "May", "June", "July",
