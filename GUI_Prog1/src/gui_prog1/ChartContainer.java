@@ -101,6 +101,18 @@ public final class ChartContainer extends JScrollPane {
         setColumnHeader( headerView );
     }
     
+    public int getYear_i(){
+        return year_i;
+    }
+    
+    public int getMonth_i(){
+        return month_i;
+    }
+    
+    public int getDay_i(){
+        return day_i;
+    }
+    
     /*
     Initial creation of charts
     */
