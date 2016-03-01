@@ -5,13 +5,10 @@
  */
 package gui_prog1;
 
-import java.awt.Dimension;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
+import javax.swing.JOptionPane;
 /**
  *
- * @author 7201363
+ * @author 7173203
  */
 public class MainFrame extends javax.swing.JFrame {
 
@@ -19,6 +16,7 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public MainFrame() {
+        super("Weatehr Station");
         initComponents();
     }
 
@@ -31,21 +29,397 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ViewButtonGroup = new javax.swing.ButtonGroup();
+        ToolPanel = new javax.swing.JPanel();
+        YearButton = new javax.swing.JToggleButton();
+        MonthButton = new javax.swing.JToggleButton();
+        WeekButton = new javax.swing.JToggleButton();
+        DayButton = new javax.swing.JToggleButton();
+        PreviousButton = new javax.swing.JButton();
+        NextButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        DisplayPanel = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        ComputationPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        chartContainer = new gui_prog1.ChartContainer();
+        Menubar = new javax.swing.JMenuBar();
+        FileMenu = new javax.swing.JMenu();
+        OpenItem = new javax.swing.JMenuItem();
+        QuitItem = new javax.swing.JMenuItem();
+        EditMenu = new javax.swing.JMenu();
+        HelpItem = new javax.swing.JMenuItem();
+        AboutItem = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        ToolPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        ViewButtonGroup.add(YearButton);
+        YearButton.setText("View Yearly");
+        YearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                YearButtonActionPerformed(evt);
+            }
+        });
+
+        ViewButtonGroup.add(MonthButton);
+        MonthButton.setText("View Monthly");
+        MonthButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MonthButtonActionPerformed(evt);
+            }
+        });
+
+        ViewButtonGroup.add(WeekButton);
+        WeekButton.setText("View Weekly");
+        WeekButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WeekButtonActionPerformed(evt);
+            }
+        });
+
+        ViewButtonGroup.add(DayButton);
+        DayButton.setText("View Daily");
+        DayButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DayButtonActionPerformed(evt);
+            }
+        });
+
+        PreviousButton.setText("Previous Data Set");
+        PreviousButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PreviousButtonActionPerformed(evt);
+            }
+        });
+
+        NextButton.setText("Next data Set");
+        NextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NextButtonActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ToolPanelLayout = new javax.swing.GroupLayout(ToolPanel);
+        ToolPanel.setLayout(ToolPanelLayout);
+        ToolPanelLayout.setHorizontalGroup(
+            ToolPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ToolPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(YearButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MonthButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(WeekButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DayButton)
+                .addGap(57, 57, 57)
+                .addComponent(jButton1)
+                .addGap(78, 78, 78)
+                .addComponent(PreviousButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NextButton)
+                .addContainerGap(464, Short.MAX_VALUE))
+        );
+        ToolPanelLayout.setVerticalGroup(
+            ToolPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ToolPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(YearButton)
+                .addComponent(MonthButton)
+                .addComponent(WeekButton)
+                .addComponent(DayButton)
+                .addComponent(PreviousButton)
+                .addComponent(NextButton)
+                .addComponent(jButton1))
+        );
+
+        DisplayPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel11.setText("Current Date/Time:");
+
+        jLabel12.setText("Temperature:");
+
+        jLabel13.setText("Humidity:");
+
+        jLabel14.setText("Barometer:");
+
+        jLabel15.setText("WindSpeed:");
+
+        jLabel16.setText("WindDirection:");
+
+        jLabel17.setText("WindGust:");
+
+        jLabel18.setText("WindChill");
+
+        jLabel19.setText("HeatIndex:");
+
+        jLabel20.setText("UVIndex:");
+
+        jLabel21.setText("RainFall:");
+
+        javax.swing.GroupLayout DisplayPanelLayout = new javax.swing.GroupLayout(DisplayPanel);
+        DisplayPanel.setLayout(DisplayPanelLayout);
+        DisplayPanelLayout.setHorizontalGroup(
+            DisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DisplayPanelLayout.createSequentialGroup()
+                .addGroup(DisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DisplayPanelLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DisplayPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(DisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(81, Short.MAX_VALUE))
+        );
+        DisplayPanelLayout.setVerticalGroup(
+            DisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DisplayPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel21)
+                .addContainerGap(105, Short.MAX_VALUE))
+        );
+
+        ComputationPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel1.setText("Average Temperature:  ");
+
+        jLabel2.setText("Highest Temperature:");
+
+        jLabel3.setText("Date/Time:");
+
+        jLabel4.setText("Lowest Temperature:");
+
+        jLabel5.setText("Date/Time:");
+
+        jLabel6.setText("Mean Wind Speed:");
+
+        jLabel7.setText("Maximum Wind Speed:");
+
+        jLabel8.setText("Date/Time:");
+
+        jLabel9.setText("Wind Direction:");
+
+        jLabel10.setText("Conmunitive Rainfall:");
+
+        jLabel22.setText("Data Analysis");
+
+        javax.swing.GroupLayout ComputationPanelLayout = new javax.swing.GroupLayout(ComputationPanel);
+        ComputationPanel.setLayout(ComputationPanelLayout);
+        ComputationPanelLayout.setHorizontalGroup(
+            ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ComputationPanelLayout.createSequentialGroup()
+                .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ComputationPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(ComputationPanelLayout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ComputationPanelLayout.setVerticalGroup(
+            ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ComputationPanelLayout.createSequentialGroup()
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        FileMenu.setText("File");
+
+        OpenItem.setText("Open");
+        FileMenu.add(OpenItem);
+
+        QuitItem.setText("Quit");
+        QuitItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QuitItemActionPerformed(evt);
+            }
+        });
+        FileMenu.add(QuitItem);
+
+        Menubar.add(FileMenu);
+
+        EditMenu.setText("Edit");
+
+        HelpItem.setText("Help");
+        EditMenu.add(HelpItem);
+
+        AboutItem.setText("About");
+        AboutItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AboutItemActionPerformed(evt);
+            }
+        });
+        EditMenu.add(AboutItem);
+
+        Menubar.add(EditMenu);
+
+        setJMenuBar(Menubar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(ToolPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(chartContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ComputationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DisplayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(ToolPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(DisplayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComputationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(chartContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void QuitItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitItemActionPerformed
+       System.out.println("File|Quit selected");
+       System.exit(0);
+    }//GEN-LAST:event_QuitItemActionPerformed
+
+    private void YearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YearButtonActionPerformed
+        // TODO add your handling code here:
+        chartContainer.viewYear();
+    }//GEN-LAST:event_YearButtonActionPerformed
+
+    private void AboutItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutItemActionPerformed
+       System.out.println("Edit|About selected");
+       JOptionPane.showMessageDialog( null, "WeatherStation, v.0.1.0", "About WeatherStation", JOptionPane.INFORMATION_MESSAGE );
+    }//GEN-LAST:event_AboutItemActionPerformed
+
+    private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButtonActionPerformed
+        chartContainer.nextDataset();
+    }//GEN-LAST:event_NextButtonActionPerformed
+
+    private void PreviousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PreviousButtonActionPerformed
+        chartContainer.prevDataset();
+    }//GEN-LAST:event_PreviousButtonActionPerformed
+
+    private void MonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthButtonActionPerformed
+        // TODO add your handling code here:
+        chartContainer.viewMonth();
+    }//GEN-LAST:event_MonthButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        chartContainer.init(record);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void WeekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WeekButtonActionPerformed
+        // TODO add your handling code here:
+        chartContainer.viewWeek();
+    }//GEN-LAST:event_WeekButtonActionPerformed
+
+    private void DayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayButtonActionPerformed
+        // TODO add your handling code here:
+        chartContainer.viewDay();
+    }//GEN-LAST:event_DayButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,31 +447,59 @@ public class MainFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                // TODO code application logic here
-                Records record = ReadXMLFile.readXMLFile(args);
-
-                System.out.println("Virtual Main");
-                MainFrame mainFrame = new MainFrame();
-                JPanel contentPane = new JPanel();
-                ChartContainer instance = new ChartContainer( record );
-
-                contentPane.setPreferredSize(new Dimension(1000,700));
-                contentPane.add(instance);
-
-                mainFrame.setContentPane(contentPane);
-                mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                mainFrame.pack();
-                mainFrame.setVisible(true);
-
-                instance.viewMonth();
+                record = ReadXMLFile.readXMLFile(args);
+                new MainFrame().setVisible(true);
             }
         });
     }
 
+    private static Records record;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AboutItem;
+    private javax.swing.JPanel ComputationPanel;
+    private javax.swing.JToggleButton DayButton;
+    private javax.swing.JPanel DisplayPanel;
+    private javax.swing.JMenu EditMenu;
+    private javax.swing.JMenu FileMenu;
+    private javax.swing.JMenuItem HelpItem;
+    private javax.swing.JMenuBar Menubar;
+    private javax.swing.JToggleButton MonthButton;
+    private javax.swing.JButton NextButton;
+    private javax.swing.JMenuItem OpenItem;
+    private javax.swing.JButton PreviousButton;
+    private javax.swing.JMenuItem QuitItem;
+    private javax.swing.JPanel ToolPanel;
+    private javax.swing.ButtonGroup ViewButtonGroup;
+    private javax.swing.JToggleButton WeekButton;
+    private javax.swing.JToggleButton YearButton;
+    private gui_prog1.ChartContainer chartContainer;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
