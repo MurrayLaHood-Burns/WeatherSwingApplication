@@ -379,9 +379,9 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
         
         setChartPanels();
         
-        headerLabel.setText( monthName[month_i] + " " +
-                Integer.toString(day_i+1) + ", " +
-                Integer.toString(record.leastYear + year_i));
+        headerLabel.setText( 
+                record.year[year_i].months[month_i].days[day_i].time[0].getDay().toString()
+        );
     }
     
     /*
@@ -658,7 +658,7 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
         
         Minute minute = new Minute(min,hour,day,month,year+2000);
         
-        year = (record.leastYear - 2000) - year;
+        year = year - (record.leastYear - 2000);
         day--;
         month--;
         
