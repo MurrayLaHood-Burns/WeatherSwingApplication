@@ -38,6 +38,7 @@ public class MainFrame extends javax.swing.JFrame {
         DayButton = new javax.swing.JToggleButton();
         PreviousButton = new javax.swing.JButton();
         NextButton = new javax.swing.JButton();
+        chartContainer = new gui_prog1.ChartContainer();
         DisplayPanel = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -62,7 +63,6 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        chartContainer = new gui_prog1.ChartContainer();
         Menubar = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
         OpenItem = new javax.swing.JMenuItem();
@@ -138,7 +138,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(PreviousButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NextButton)
-                .addContainerGap(464, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ToolPanelLayout.setVerticalGroup(
             ToolPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,17 +187,21 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(DisplayPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(DisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
                             .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(81, Short.MAX_VALUE))
+                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(DisplayPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel20))
+                    .addGroup(DisplayPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DisplayPanelLayout.setVerticalGroup(
             DisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,7 +228,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel21)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         ComputationPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -256,57 +260,67 @@ public class MainFrame extends javax.swing.JFrame {
         ComputationPanelLayout.setHorizontalGroup(
             ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ComputationPanelLayout.createSequentialGroup()
-                .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(ComputationPanelLayout.createSequentialGroup()
-                            .addGap(115, 115, 115)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(ComputationPanelLayout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(ComputationPanelLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComputationPanelLayout.createSequentialGroup()
+                        .addGap(0, 44, Short.MAX_VALUE)
+                        .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(ComputationPanelLayout.createSequentialGroup()
+                        .addGroup(ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ComputationPanelLayout.createSequentialGroup()
+                                .addGap(97, 97, 97)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         ComputationPanelLayout.setVerticalGroup(
             ComputationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ComputationPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(8, 8, 8)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         FileMenu.setText("File");
 
         OpenItem.setText("Open");
+        OpenItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpenItemActionPerformed(evt);
+            }
+        });
         FileMenu.add(OpenItem);
 
         QuitItem.setText("Quit");
@@ -322,6 +336,11 @@ public class MainFrame extends javax.swing.JFrame {
         EditMenu.setText("Edit");
 
         HelpItem.setText("Help");
+        HelpItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HelpItemActionPerformed(evt);
+            }
+        });
         EditMenu.add(HelpItem);
 
         AboutItem.setText("About");
@@ -341,13 +360,13 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ToolPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(chartContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ComputationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DisplayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(DisplayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ComputationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,12 +375,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(DisplayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComputationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(chartContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(ComputationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(DisplayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chartContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -377,21 +394,21 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         chartContainer.viewYear();
         
-        jLabel1.setText("Average Temperature (F): "+ record.getYearAvTemp(chartContainer.getYear_i()));
-        jLabel2.setText("Higest Temperature (F): "+ record.getYearMinMaxTemp(chartContainer.getYear_i()).max);
-        jLabel3.setText("Date/Time : "+ record.getYearMinMaxTemp(chartContainer.getYear_i()).maxDay);
-        jLabel4.setText("Lowest Temperature (F): "+ record.getYearMinMaxTemp(chartContainer.getYear_i()).min);
-        jLabel5.setText("Date/Time : "+ record.getYearMinMaxTemp(chartContainer.getYear_i()).minDay);
-        jLabel6.setText("Mean Wind Speed (mph): "+ record.getYearAvWind(chartContainer.getYear_i()));
-        jLabel7.setText("Maximum Wind Speed (mph): "+ record.getYearMinMaxWind(chartContainer.getYear_i()).max);
-        jLabel8.setText("Date/Time : "+ record.getYearMinMaxWind(chartContainer.getYear_i()).maxDay);
-        jLabel9.setText("Wind Direction: ");
-        jLabel10.setText("Conmunitive RainFall (in.): "+ record.getYearRainfall(chartContainer.getYear_i()));
+        jLabel1.setText("Average Temperature (F):   "+ record.getYearAvTemp(chartContainer.getYear_i()));
+        jLabel2.setText("Higest Temperature (F):   "+ record.getYearMinMaxTemp(chartContainer.getYear_i()).max);
+        jLabel3.setText("Date/Time :   "+ record.getYearMinMaxTemp(chartContainer.getYear_i()).maxDay);
+        jLabel4.setText("Lowest Temperature (F):   "+ record.getYearMinMaxTemp(chartContainer.getYear_i()).min);
+        jLabel5.setText("Date/Time :   "+ record.getYearMinMaxTemp(chartContainer.getYear_i()).minDay);
+        jLabel6.setText("Mean Wind Speed (mph):   "+ record.getYearAvWind(chartContainer.getYear_i()));
+        jLabel7.setText("Maximum Wind Speed (mph):  "+ record.getYearMinMaxWind(chartContainer.getYear_i()).max);
+        jLabel8.setText("Date/Time :   "+ record.getYearMinMaxWind(chartContainer.getYear_i()).maxDay);
+        jLabel9.setText("Wind Direction:   ");
+        jLabel10.setText("Conmunitive RainFall (in.):   "+ record.getYearRainfall(chartContainer.getYear_i()));
     }//GEN-LAST:event_YearButtonActionPerformed
 
     private void AboutItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutItemActionPerformed
        System.out.println("Edit|About selected");
-       JOptionPane.showMessageDialog( null, "WeatherStation, v.0.1.0", "About WeatherStation", JOptionPane.INFORMATION_MESSAGE );
+       JOptionPane.showMessageDialog( null, "WeatherStation, v.0.9.0", "About WeatherStation", JOptionPane.INFORMATION_MESSAGE );
     }//GEN-LAST:event_AboutItemActionPerformed
 
     private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButtonActionPerformed
@@ -406,16 +423,16 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         chartContainer.viewMonth();
         
-        jLabel1.setText("Average Temperature (F): "+ record.getMonthAvTemp(chartContainer.getYear_i(), chartContainer.getMonth_i()));
-        jLabel2.setText("Higest Temperature (F): "+ record.getMonthMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i()).max);
-        jLabel3.setText("Date/Time : "+ record.getMonthMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i()).maxDay);
-        jLabel4.setText("Lowest Temperature (F): "+ record.getMonthMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i()).min);
-        jLabel5.setText("Date/Time : "+ record.getMonthMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i()).minDay);
-        jLabel6.setText("Mean Wind Speed (mph): "+ record.getMonthAvWind(chartContainer.getYear_i(), chartContainer.getMonth_i()));
-        jLabel7.setText("Maximum Wind Speed (mph): "+ record.getMonthMinMaxWind(chartContainer.getYear_i(),chartContainer.getMonth_i()).max);
-        jLabel8.setText("Date/Time : "+ record.getMonthMinMaxWind(chartContainer.getYear_i(),chartContainer.getMonth_i()).maxDay);
-        jLabel9.setText("Wind Direction: ");
-        jLabel10.setText("Conmunitive RainFall (in.): "+ record.getMonthRainfall(chartContainer.getYear_i(), chartContainer.getMonth_i()));
+        jLabel1.setText("Average Temperature (F):   "+ record.getMonthAvTemp(chartContainer.getYear_i(), chartContainer.getMonth_i()));
+        jLabel2.setText("Higest Temperature (F):   "+ record.getMonthMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i()).max);
+        jLabel3.setText("Date/Time :   "+ record.getMonthMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i()).maxDay);
+        jLabel4.setText("Lowest Temperature (F):   "+ record.getMonthMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i()).min);
+        jLabel5.setText("Date/Time :   "+ record.getMonthMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i()).minDay);
+        jLabel6.setText("Mean Wind Speed (mph):   "+ record.getMonthAvWind(chartContainer.getYear_i(), chartContainer.getMonth_i()));
+        jLabel7.setText("Maximum Wind Speed (mph):   "+ record.getMonthMinMaxWind(chartContainer.getYear_i(),chartContainer.getMonth_i()).max);
+        jLabel8.setText("Date/Time :   "+ record.getMonthMinMaxWind(chartContainer.getYear_i(),chartContainer.getMonth_i()).maxDay);
+        jLabel9.setText("Wind Direction:   ");
+        jLabel10.setText("Conmunitive RainFall (in.):   "+ record.getMonthRainfall(chartContainer.getYear_i(), chartContainer.getMonth_i()));
                
     }//GEN-LAST:event_MonthButtonActionPerformed
 
@@ -428,17 +445,26 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         chartContainer.viewDay();
         
-        jLabel1.setText("Average Temperature (F): "+ record.getDayAvTemp(chartContainer.getYear_i(), chartContainer.getMonth_i(),chartContainer.getDay_i()));
-        jLabel2.setText("Higest Temperature (F): "+ record.getDayMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).max);
-        jLabel3.setText("Date/Time : "+ record.getDayMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).maxDay);
-        jLabel4.setText("Lowest Temperature (F): "+ record.getDayMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).min);
-        jLabel5.setText("Date/Time : "+ record.getDayMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).minDay);
-        jLabel6.setText("Mean Wind Speed (mph): "+ record.getDayAvWind(chartContainer.getYear_i(), chartContainer.getMonth_i(),chartContainer.getDay_i()));
-        jLabel7.setText("Maximum Wind Speed (mph): "+ record.getDayMinMaxWind(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).max);
-        jLabel8.setText("Date/Time : "+ record.getDayMinMaxWind(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).maxDay);
-        jLabel9.setText("Wind Direction: ");
-        jLabel10.setText("Conmunitive RainFall (in.): "+ record.getDayRainfall(chartContainer.getYear_i(), chartContainer.getMonth_i(),chartContainer.getDay_i()));
+        jLabel1.setText("Average Temperature (F):   "+ record.getDayAvTemp(chartContainer.getYear_i(), chartContainer.getMonth_i(),chartContainer.getDay_i()));
+        jLabel2.setText("Higest Temperature (F):   "+ record.getDayMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).max);
+        jLabel3.setText("Date/Time :   "+ record.getDayMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).maxDay);
+        jLabel4.setText("Lowest Temperature (F):   "+ record.getDayMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).min);
+        jLabel5.setText("Date/Time :   "+ record.getDayMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).minDay);
+        jLabel6.setText("Mean Wind Speed (mph):   "+ record.getDayAvWind(chartContainer.getYear_i(), chartContainer.getMonth_i(),chartContainer.getDay_i()));
+        jLabel7.setText("Maximum Wind Speed (mph):   "+ record.getDayMinMaxWind(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).max);
+        jLabel8.setText("Date/Time :   "+ record.getDayMinMaxWind(chartContainer.getYear_i(),chartContainer.getMonth_i(),chartContainer.getDay_i()).maxDay);
+        jLabel9.setText("Wind Direction:   ");
+        jLabel10.setText("Conmunitive RainFall (in.):   "+ record.getDayRainfall(chartContainer.getYear_i(), chartContainer.getMonth_i(),chartContainer.getDay_i()));
     }//GEN-LAST:event_DayButtonActionPerformed
+
+    private void HelpItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpItemActionPerformed
+        System.out.println("Edit|About selected");
+        JOptionPane.showMessageDialog( null, "Usage:", "Usage of Weather Station", JOptionPane.INFORMATION_MESSAGE );
+    }//GEN-LAST:event_HelpItemActionPerformed
+
+    private void OpenItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenItemActionPerformed
+        
+    }//GEN-LAST:event_OpenItemActionPerformed
     
     /**
      * @param args the command line arguments

@@ -36,7 +36,7 @@ public class MinMax {
         if(value > max)
         {
             max = value;
-            minDay = vDay;
+            maxDay = vDay;
         }
     }
     
