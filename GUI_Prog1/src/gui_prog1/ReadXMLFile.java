@@ -430,6 +430,9 @@ public class ReadXMLFile
         else
             hours = Integer.parseInt(time.substring( ref_index-1, ref_index));
         
+        if(hours == 12)
+            hours=0;
+        
         // add 12 hours if the hour is in the PM
         if( time.charAt(ref_index+3) == 'P' )
             hours += 12;
