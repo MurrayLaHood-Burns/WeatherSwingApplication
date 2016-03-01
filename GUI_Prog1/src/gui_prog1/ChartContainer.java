@@ -26,16 +26,19 @@ import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYDataset;
 
 /**
- *
- * @author 7201363
+ * ChartContainer is a JScrollPane that contains six charts (temp, humidity,
+ * barometer, windspeed, UV index, and rainfall). The charts must be initialized
+ * with the init( Record record ) function for the charts to be filled with data.
+ * Also provides functionality for chart clicks, changing (yearly,monthly,weekly,
+ * daily) views, and toggling between next and previous datasets.
+ * 
+ * @author Murray LaHood-Burns
  */
 public final class ChartContainer extends JScrollPane implements ChartMouseListener {
     
-    
-    
-    /*
-    Constructor
-    */
+    /**
+     * 
+     */
     public ChartContainer()
     {
         
@@ -284,6 +287,9 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
     */
     public void viewYear()
     {
+        if( currView == ViewEnum.YEAR )
+            return;
+        
         currView = ViewEnum.YEAR;
         
         tempChart = createChart( createYearDataset("Temp", ChartEnum.TEMP),
@@ -459,8 +465,23 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
     /*
     selectedDataset
     */
-    public void selectedDataset()
-    {}
+    public boolean selectedDataset( int year, int month, int day )
+    {
+        // set input to array indexes
+        year = year - record.leastYear;
+        month--;
+        day--;
+        
+        // if it is a valid day, change internal indexes
+        if(!record.year[year].months[month].days[day].validDay)
+            return false;
+        
+        year_i = year;
+        month_i = month;
+        day_i = day;
+        
+        return true;
+    }
     
     private void addDayToSeries( TimeSeries series, Day day, ChartEnum chartNum)
     {
