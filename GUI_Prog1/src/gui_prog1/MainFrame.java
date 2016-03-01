@@ -423,6 +423,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         chartContainer.viewMonth();
         
+        
+        
         jLabel1.setText("Average Temperature (F):   "+ record.getMonthAvTemp(chartContainer.getYear_i(), chartContainer.getMonth_i()));
         jLabel2.setText("Higest Temperature (F):   "+ record.getMonthMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i()).max);
         jLabel3.setText("Date/Time :   "+ record.getMonthMinMaxTemp(chartContainer.getYear_i(),chartContainer.getMonth_i()).maxDay);
