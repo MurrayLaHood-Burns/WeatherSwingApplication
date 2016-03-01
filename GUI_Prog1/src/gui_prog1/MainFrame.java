@@ -404,6 +404,8 @@ public class MainFrame extends javax.swing.JFrame {
     private void MonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthButtonActionPerformed
         // TODO add your handling code here:
         chartContainer.viewMonth();
+        double temp = record.getMonthAvTemp(chartContainer.getYear_i(), chartContainer.getMonth_i());
+        System.out.println(temp);
     }//GEN-LAST:event_MonthButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -452,7 +454,7 @@ public class MainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                record = ReadXMLFile.readXMLFile(args);
+                record = ReadXMLFile.readXMLFile("data");
                 new MainFrame().setVisible(true);
             }
         });
