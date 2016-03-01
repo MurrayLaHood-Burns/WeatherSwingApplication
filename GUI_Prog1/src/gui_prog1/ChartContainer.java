@@ -224,10 +224,9 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
         day_offset = 0;
         for( i = 0; i < 7; i++ )
         {
-            
             // check if we went over the current month
-            if( day_i+day_offset == 31 || 
-                    !day.validDay)
+            if( (day_i+day_offset == 31 || 
+                    !day.validDay) && inNextMonth == false)
             {
                 System.out.println("Week extending to next month");
                 // reset day offest
@@ -235,17 +234,13 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
                 // go to next month if valid
                 if(nextMonth!=null){
                     inNextMonth = true;
-                    day = nextMonth.days[day_offset];
                 }
                 // else return the current dataset
                 else
                     return new TimeSeriesCollection(series);
             }
             
-            addDayToSeries(series,day,chartNum);
-            
             // get next day of week
-            day_offset++;
             if(inNextMonth){
                 if( nextMonth!=null)
                     day = nextMonth.days[day_offset];
@@ -253,7 +248,12 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
             else
                 day = currMonth.days[day_i+day_offset];
             
-            /*
+            addDayToSeries(series,day,chartNum);
+            
+            day_offset++;
+            
+            
+            
             System.out.print("chartNum:");
             System.out.print(chartNum);
             System.out.print(" | i:");
@@ -263,7 +263,7 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
             System.out.print(" | day_offset:");
             System.out.print(day_offset);
             System.out.print(" | inNextMonth:");
-            System.out.println(inNextMonth);*/
+            System.out.println(inNextMonth);
         }
                 
         return new TimeSeriesCollection(series);
@@ -287,8 +287,6 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
     */
     public void viewYear()
     {
-        if( currView == ViewEnum.YEAR )
-            return;
         
         currView = ViewEnum.YEAR;
         
@@ -462,85 +460,6 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
         }
     }
     
-    /*
-    selectedDataset
-    */
-    public boolean selectedDataset( int year, int month, int day )
-    {
-        // set input to array indexes
-        year = year - record.leastYear;
-        month--;
-        day--;
-        
-        // if it is a valid day, change internal indexes
-        if(!record.year[year].months[month].days[day].validDay)
-            return false;
-        
-        year_i = year;
-        month_i = month;
-        day_i = day;
-        
-        return true;
-    }
-    
-    private void addDayToSeries( TimeSeries series, Day day, ChartEnum chartNum)
-    {
-        int time;
-        Minute currMinute;
-        boolean validTime = true;
-        for( time = 0; time < 144 && validTime; time++ ){
-            if( day.valid[time] )
-            {
-                currMinute = day.time[time];
-                if( null != chartNum)
-                switch (chartNum) {
-                    case TEMP:
-                        series.add( currMinute,
-                                day.temperature[time] );
-                        break;
-                    case HUM:
-                        series.add( currMinute,
-                                day.humidity[time]);
-                        break;
-                    case BARO:
-                        series.add( currMinute,
-                                day.barometer[time]);
-                        break;
-                    case WIND:
-                        series.add( currMinute,
-                                day.windspeed[time]);
-                        break;
-                    case UV:
-                        series.add( currMinute,
-                                day.uvindex[time]);
-                        break;
-                    case RAIN:
-                        series.add( currMinute,
-                                day.rainfall[time]);
-                        break;
-                    default:
-                        System.out.println("Invalid ChartNum(enum)");
-                        break;
-                }
-            }
-            else
-                validTime = false;
-        }
-    }
-    
-    /*
-    setChartPanels
-    */
-    private void setChartPanels()
-    {
-        tempPanel.setChart(tempChart);
-        humPanel.setChart(humChart);
-        baroPanel.setChart(baroChart);
-        windPanel.setChart(windChart);
-        uvPanel.setChart(uvChart);
-        rainPanel.setChart(rainChart);
-    }
-    
     private boolean incrementYear_i(){
         // if end of record, return
         if(year_i == record.size-1)
@@ -637,6 +556,85 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
         return true;
     }
     
+    /*
+    selectedDataset
+    */
+    public boolean selectedDataset( int year, int month, int day )
+    {
+        // set input to array indexes
+        year = year - record.leastYear;
+        month--;
+        day--;
+        
+        if(!record.year[year].months[month].days[day].validDay)
+            return false;
+        
+        // if it is a valid day, change internal indexes
+        year_i = year;
+        month_i = month;
+        day_i = day;
+        
+        return true;
+    }
+    
+    private void addDayToSeries( TimeSeries series, Day day, ChartEnum chartNum)
+    {
+        int time;
+        Minute currMinute;
+        boolean validTime = true;
+        for( time = 0; time < 144 && validTime; time++ ){
+            if( day.valid[time] )
+            {
+                currMinute = day.time[time];
+                if( null != chartNum)
+                switch (chartNum) {
+                    case TEMP:
+                        series.add( currMinute,
+                                day.temperature[time] );
+                        break;
+                    case HUM:
+                        series.add( currMinute,
+                                day.humidity[time]);
+                        break;
+                    case BARO:
+                        series.add( currMinute,
+                                day.barometer[time]);
+                        break;
+                    case WIND:
+                        series.add( currMinute,
+                                day.windspeed[time]);
+                        break;
+                    case UV:
+                        series.add( currMinute,
+                                day.uvindex[time]);
+                        break;
+                    case RAIN:
+                        series.add( currMinute,
+                                day.rainfall[time]);
+                        break;
+                    default:
+                        System.out.println("Invalid ChartNum(enum)");
+                        break;
+                }
+            }
+            else
+                validTime = false;
+        }
+    }
+    
+    /*
+    setChartPanels
+    */
+    private void setChartPanels()
+    {
+        tempPanel.setChart(tempChart);
+        humPanel.setChart(humChart);
+        baroPanel.setChart(baroChart);
+        windPanel.setChart(windChart);
+        uvPanel.setChart(uvChart);
+        rainPanel.setChart(rainChart);
+    }
+    
     private int getTimeIndex(Day day, Minute key, int imin, int imax)
     {
         if(imax<imin)
@@ -727,8 +725,6 @@ public final class ChartContainer extends JScrollPane implements ChartMouseListe
     private int year_i;
     private int month_i;
     private int day_i;
-    
-    private Minute currMin;
     
     private JFreeChart tempChart;
     private JFreeChart humChart;
