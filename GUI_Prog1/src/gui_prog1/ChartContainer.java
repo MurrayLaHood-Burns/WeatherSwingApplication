@@ -92,6 +92,8 @@ public final class ChartContainer extends JScrollPane {
         rainChart = createChart( createYearDataset("Rain", ChartEnum.RAIN),
                 "Rainfall", "Inches");
         
+        setChartPanels();
+        
         // header settings
         headerView = new JViewport();
         headerLabel = new JLabel(Integer.toString(record.leastYear+year_i), JLabel.CENTER);
