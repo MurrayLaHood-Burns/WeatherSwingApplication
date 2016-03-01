@@ -16,7 +16,7 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public MainFrame() {
-        super("Weatehr Station");
+        super("Weather Station");
         initComponents();
         chartContainer.init(record);
     }
@@ -407,7 +407,7 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         chartContainer.viewDay();
     }//GEN-LAST:event_DayButtonActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
