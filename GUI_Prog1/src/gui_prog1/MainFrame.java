@@ -5,6 +5,7 @@
  */
 package gui_prog1;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 /**
  *
@@ -465,7 +466,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_HelpItemActionPerformed
 
     private void OpenItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenItemActionPerformed
-        
+        JFileChooser fc = new JFileChooser();
+        if( fc.showOpenDialog( null ) == JFileChooser.APPROVE_OPTION )
+        {
+            System.out.println( "You picked this file: " + fc.getSelectedFile().getName() );
+        }
     }//GEN-LAST:event_OpenItemActionPerformed
     
     /**
