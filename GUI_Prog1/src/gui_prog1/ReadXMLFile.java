@@ -131,25 +131,25 @@ public class ReadXMLFile
                             setMinMax(temp.year[tempYear - temp.leastYear].
                                     months[tempMonth-1].mwindSpeed.max, 
                                     temp.year[tempYear - temp.leastYear].
-                                    months[tempMonth-1].mwindSpeed.maxMinute);
+                                    months[tempMonth-1].mwindSpeed.maxDay);
                     
                     temp.year[tempYear - temp.leastYear].mwindSpeed.
                             setMinMax(temp.year[tempYear - temp.leastYear].
                                     months[tempMonth-1].mwindSpeed.min, 
                                     temp.year[tempYear - temp.leastYear].
-                                    months[tempMonth-1].mwindSpeed.minMinute);
+                                    months[tempMonth-1].mwindSpeed.minDay);
                     
                     temp.year[tempYear - temp.leastYear].mtemp.
                             setMinMax(temp.year[tempYear - temp.leastYear].
                                     months[tempMonth-1].mtemp.max, 
                                     temp.year[tempYear - temp.leastYear].
-                                    months[tempMonth-1].mtemp.maxMinute);
+                                    months[tempMonth-1].mtemp.maxDay);
                     
                     temp.year[tempYear - temp.leastYear].mtemp.
                             setMinMax(temp.year[tempYear - temp.leastYear].
                                     months[tempMonth-1].mtemp.min, 
                                     temp.year[tempYear - temp.leastYear].
-                                    months[tempMonth-1].mtemp.maxMinute);
+                                    months[tempMonth-1].mtemp.maxDay);
                     
                     temp.year[tempYear - temp.leastYear].totalRain +=
                             temp.year[tempYear - temp.leastYear].

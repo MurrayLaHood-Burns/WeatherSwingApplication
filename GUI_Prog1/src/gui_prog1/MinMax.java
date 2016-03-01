@@ -18,8 +18,7 @@ public class MinMax {
     public Minute minDay = new Minute(1,1,1,1,1991);
     public Minute maxDay = new Minute(1,1,1,1,1991);
     public double max = -999;
-    public Minute minMinute = new Minute();
-    public Minute maxMinute = new Minute();
+
     
     public MinMax()
     {
