@@ -18,6 +18,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         super("Weatehr Station");
         initComponents();
+        chartContainer.init(record);
     }
 
     /**
@@ -37,7 +38,6 @@ public class MainFrame extends javax.swing.JFrame {
         DayButton = new javax.swing.JToggleButton();
         PreviousButton = new javax.swing.JButton();
         NextButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         DisplayPanel = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -121,13 +121,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout ToolPanelLayout = new javax.swing.GroupLayout(ToolPanel);
         ToolPanel.setLayout(ToolPanelLayout);
         ToolPanelLayout.setHorizontalGroup(
@@ -141,9 +134,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(WeekButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DayButton)
-                .addGap(57, 57, 57)
-                .addComponent(jButton1)
-                .addGap(78, 78, 78)
+                .addGap(208, 208, 208)
                 .addComponent(PreviousButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NextButton)
@@ -157,8 +148,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(WeekButton)
                 .addComponent(DayButton)
                 .addComponent(PreviousButton)
-                .addComponent(NextButton)
-                .addComponent(jButton1))
+                .addComponent(NextButton))
         );
 
         DisplayPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -408,11 +398,6 @@ public class MainFrame extends javax.swing.JFrame {
         System.out.println(temp);
     }//GEN-LAST:event_MonthButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        chartContainer.init(record);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void WeekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WeekButtonActionPerformed
         // TODO add your handling code here:
         chartContainer.viewWeek();
@@ -480,7 +465,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton WeekButton;
     private javax.swing.JToggleButton YearButton;
     private gui_prog1.ChartContainer chartContainer;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
