@@ -41,9 +41,9 @@ import javax.swing.JPanel;
 
 public class ReadXMLFile
 {
-    public static Records readXMLFile( String[] args )
+    public static Records readXMLFile( String directory )
     {
-        File folder = new File("data");
+        File folder = new File(directory);
         //File folder = new File("Weather_Records");
         File[] listOfFiles = folder.listFiles();
         int tempDate = 0;
