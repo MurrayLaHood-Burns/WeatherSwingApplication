@@ -10,11 +10,14 @@ import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
 import javax.swing.ScrollPaneConstants;
 import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartMouseEvent;
+import org.jfree.chart.ChartMouseListener;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.time.Minute;
@@ -26,7 +29,9 @@ import org.jfree.data.xy.XYDataset;
  *
  * @author 7201363
  */
-public final class ChartContainer extends JScrollPane {
+public final class ChartContainer extends JScrollPane implements ChartMouseListener {
+    
+    
     
     /*
     Constructor
@@ -93,6 +98,14 @@ public final class ChartContainer extends JScrollPane {
                 "Rainfall", "Inches");
         
         setChartPanels();
+        
+        // add chartmouselisteners
+        tempPanel.addChartMouseListener(this);
+        humPanel.addChartMouseListener(this);
+        baroPanel.addChartMouseListener(this);
+        windPanel.addChartMouseListener(this);
+        uvPanel.addChartMouseListener(this);
+        rainPanel.addChartMouseListener(this);
         
         // header settings
         headerView = new JViewport();
@@ -602,12 +615,84 @@ public final class ChartContainer extends JScrollPane {
         day_i--;
         return true;
     }
+    
+    private int getTimeIndex(Day day, Minute key, int imin, int imax)
+    {
+        if(imax<imin)
+            return-1;
+        else
+        {
+            int imid = (imin+imax)>>>1;
+            Minute currMinute = day.time[imid];
+            
+            if(currMinute == null || currMinute.compareTo(key) > 0)
+                return getTimeIndex(day,key,imin,imid-1);
+            else if(currMinute.compareTo(key) < 0)
+                return getTimeIndex(day,key,imid+1,imax);
+            else
+                return imid;
+        }
+    }
+    
+    @Override
+    public void chartMouseClicked(ChartMouseEvent cme) {
+        
+        String tooltip = cme.getEntity().getToolTipText();
+        String date = tooltip.substring(tooltip.indexOf("(")+1, tooltip.indexOf("M")+1);
+        int month = Integer.parseInt(date.substring(0, date.indexOf("/")));
+        int day = Integer.parseInt(date.substring(date.indexOf("/")+1, date.lastIndexOf("/")));
+        int year = Integer.parseInt(date.substring(date.lastIndexOf("/")+1, date.indexOf(" ")));
+        int hour = Integer.parseInt(date.substring(date.indexOf(" ")+1,date.indexOf(":")));
+        int min = Integer.parseInt(date.substring(date.indexOf(":")+1,date.lastIndexOf(" ")));
+        
+        char meridian = date.charAt(date.indexOf("M")-1);
+        
+        if( meridian == 'P' )
+            hour+=12;
+        
+        System.out.println(month);
+        System.out.println(day);
+        System.out.println(year);
+        System.out.println(hour);
+        System.out.println(min);
+        
+        Minute minute = new Minute(min,hour,day,month,year+2000);
+        
+        year = (record.leastYear - 2000) - year;
+        day--;
+        month--;
+        
+        Day currDay = record.year[year].months[month].days[day];
+        int index = getTimeIndex( currDay, minute, 0, 143 );
+        
+        System.out.println(index);
+        
+        if(index == -1)
+            return;
+        
+        JOptionPane.showMessageDialog(null, date + "\n" +
+                "Temperature (F): " + Double.toString(currDay.temperature[index]) + "\n" +
+                "Humidity (%): " + Double.toString(currDay.humidity[index]) + "\n" +
+                "Barometric Pressure (in.): " + Double.toString(currDay.barometer[index]) + "\n" +
+                "Wind Speed (mph): " + Double.toString(currDay.windspeed[index]) + "\n" +
+                "Wind Direction: " + currDay.winddirection[index]+ "\n" +
+                "Wind Gust (mph): " + Double.toString(currDay.windgust[index]) + "\n" +
+                "Wind Chill (F): " + Double.toString(currDay.windchill[index]) + "\n" +
+                "Heat Index: " + Double.toString(currDay.heatindex[index]) + "\n" +
+                "UV Index " + Double.toString(currDay.uvindex[index]) + "\n" +
+                "Rainfall: " + Double.toString(currDay.rainfall[index]) + "\n");
+        
+    }
+
+    @Override
+    public void chartMouseMoved(ChartMouseEvent cme) {
+    }
    
     // Variable declarations
     private final JPanel panel;
     
     private Records record;
-    
+
     private enum ChartEnum{
         TEMP, HUM, BARO, WIND, UV, RAIN
     }
@@ -621,6 +706,8 @@ public final class ChartContainer extends JScrollPane {
     private int year_i;
     private int month_i;
     private int day_i;
+    
+    private Minute currMin;
     
     private JFreeChart tempChart;
     private JFreeChart humChart;
