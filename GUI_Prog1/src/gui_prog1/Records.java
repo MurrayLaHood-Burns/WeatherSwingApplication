@@ -79,82 +79,82 @@ public class Records
     
     public Day getDay(int year, int month, int day)
     {
-        return this.year[yearIndex(year)].months[month].days[day];
+        return this.year[year].months[month].days[day];
     }
     
     public double getYearAvTemp(int year)
     {
-        return this.year[yearIndex(year)].avTemp;
+        return this.year[year].avTemp;
     }
     
     public double getMonthAvTemp(int year, int month)
     {
-        return this.year[yearIndex(year)].months[month].avTemp;
+        return this.year[year].months[month].avTemp;
     }
     
     public double getDayAvTemp(int year, int month, int day)
     {
-        return this.year[yearIndex(year)].months[month].days[day].avTemp;
+        return this.year[year].months[month].days[day].avTemp;
     }
     
     public double getYearAvWind(int year)
     {
-        return this.year[yearIndex(year)].avWindSpeed;
+        return this.year[year].avWindSpeed;
     }
     
     public double getMonthAvWind(int year, int month)
     {
-        return this.year[yearIndex(year)].months[month].avWindSpeed;
+        return this.year[year].months[month].avWindSpeed;
     }
     
     public double getDayAvWind(int year, int month, int day)
     {
-        return this.year[yearIndex(year)].months[month].days[day].avWindSpeed;
+        return this.year[year].months[month].days[day].avWindSpeed;
     }
     
     public MinMax getYearMinMaxTemp(int year)
     {
-        return this.year[yearIndex(year)].mtemp;
+        return this.year[year].mtemp;
     }
     
     public MinMax getMonthMinMaxTemp(int year, int month)
     {
-        return this.year[yearIndex(year)].months[month].mtemp;
+        return this.year[year].months[month].mtemp;
     }
     
     public MinMax getDayMinMaxTemp(int year, int month, int day)
     {
-        return this.year[yearIndex(year)].months[month].days[day].mtemp;
+        return this.year[year].months[month].days[day].mtemp;
     }
     
     public MinMax getYearMinMaxWind(int year)
     {
-        return this.year[yearIndex(year)].mwindSpeed;
+        return this.year[year].mwindSpeed;
     }
     
     public MinMax getMonthMinMaxWind(int year, int month)
     {
-        return this.year[yearIndex(year)].months[month].mwindSpeed;
+        return this.year[year].months[month].mwindSpeed;
     }
     
     public MinMax getDayMinMaxWind(int year, int month, int day)
     {
-        return this.year[yearIndex(year)].months[month].days[day].mwindSpeed;
+        return this.year[year].months[month].days[day].mwindSpeed;
     }
     
     public double getYearRainfall(int year)
     {
-        return this.year[yearIndex(year)].totalRain;
+        return this.year[year].totalRain;
     }
     
     public double getMonthRainfall(int year, int month)
     {
-        return this.year[yearIndex(year)].months[month].totalRain;
+        return this.year[year].months[month].totalRain;
     }
     
     public double getDayRainfall(int year, int month, int day)
     {
-        return this.year[yearIndex(year)].months[month].days[day].totalRain;
+        return this.year[year].months[month].days[day].totalRain;
     }
     
 }
