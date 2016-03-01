@@ -33,6 +33,7 @@ public class Day {
     public double avWindSpeed = 0;
     public double totalRain = 0;
     public boolean validDay = false;
+    public int dayOfWeek = 0;
     
     public Day()
     {

@@ -189,6 +189,8 @@ public class ReadXMLFile
                             System.out.println("Av Wind Day: "+temp.year[k].months[i].days[j].avWindSpeed);
                             System.out.println("Av Wind Month: "+temp.year[k].months[i].avWindSpeed);
                             System.out.println("Av Wind Year: "+temp.year[k].avWindSpeed);
+                            
+                            System.out.println("DW Day: "+temp.year[k].months[i].days[j].dayOfWeek);
                             System.out.println();
 
                         System.out.println();}
@@ -277,6 +279,11 @@ public class ReadXMLFile
     {
         int indexX = 0;
         int indexY = 0;
+        int ref_index = 0;
+        
+        int month = 0;
+        int day = 0;    
+        int year = 0;
         String str;
         
         //int indexY = 0;
@@ -323,6 +330,19 @@ public class ReadXMLFile
                     temp.days[indexY].avWindSpeed /= indexX;
                     temp.avTemp += temp.days[indexY].avTemp;
                     temp.avWindSpeed += temp.days[indexY].avWindSpeed;
+                    
+                    ref_index = temp.days[indexY].date[0].indexOf('/');
+        
+                    month = Integer.parseInt( temp.days[indexY].date[0].substring( ref_index-2, ref_index ));
+                    day = Integer.parseInt( temp.days[indexY].date[0].substring( ref_index+1, ref_index+3 ));
+        
+                    // add the "20" in 2000
+                    year = Integer.parseInt( "20" + temp.days[indexY].date[0].substring( ref_index+4, ref_index+6 ));
+                    
+                    Calendar c = Calendar.getInstance();
+                    c.set(year, month, day);
+                    temp.days[indexY].dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+                    
                     indexY++;
                     indexX = 0;
                 
@@ -367,6 +387,17 @@ public class ReadXMLFile
             
             temp.avWindSpeed += temp.days[indexY].avWindSpeed;
             temp.avWindSpeed /= indexY;
+            ref_index = temp.days[indexY].date[0].indexOf('/');
+        
+            month = Integer.parseInt( temp.days[indexY].date[0].substring( ref_index-2, ref_index ));
+            day = Integer.parseInt( temp.days[indexY].date[0].substring( ref_index+1, ref_index+3 ));
+        
+            // add the "20" in 2000
+            year = Integer.parseInt( "20" + temp.days[indexY].date[0].substring( ref_index+4, ref_index+6 ));
+                 
+            Calendar c = Calendar.getInstance();
+            c.set(year, month, day);
+            temp.days[indexY].dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
                 
             //child = ( Element ) iterator.next();
             //if ( !iterator.hasNext() )

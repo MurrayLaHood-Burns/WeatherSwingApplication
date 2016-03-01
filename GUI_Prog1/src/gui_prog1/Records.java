@@ -77,6 +77,107 @@ public class Records
         return rdays;
     }
     
+    public Day[] getWeekR(int year, int month, int week)
+    {
+        int dayIndex = 0;
+        int tmpYear = year;
+        int tmpMonth = month;
+        int tmpWeek = week;
+        int dayGoal = week*7;
+        Day [] rdays = new Day [7];
+     
+       
+        rdays[this.year[year].months[month].days[dayGoal].dayOfWeek - 1] = 
+                rdays[dayIndex] = this.year[this.yearIndex(year)].months[month].days[dayGoal];
+        
+        dayIndex = this.year[year].months[month].days[dayGoal].dayOfWeek - 1;
+        for(int k = dayGoal - 1; dayIndex > 0; k--)
+        {
+            if(k < 0);
+            {
+                k = 30;
+                
+                if(tmpMonth<0)
+                {
+                    if(tmpYear<0)
+                        return null;
+                    else
+                        tmpYear -= 1;
+                
+                    tmpMonth = 11;
+                }
+                else
+                    tmpMonth -=1;
+            }
+            
+            if(this.year[this.yearIndex(year)].months[month].days[dayGoal].validDay)
+            {
+                rdays[this.year[year].months[month].days[k].dayOfWeek - 1] = this.year[year].months[month].days[k];
+                dayIndex--;
+            }
+            
+        }
+        
+        dayIndex = this.year[year].months[month].days[dayGoal].dayOfWeek + 1;
+        for(int k = dayGoal + 1; dayIndex < 8; k++)
+        {
+            if(k > 30);
+            {
+                k = 0;
+                
+                if(tmpMonth>11)
+                {
+                    if(tmpYear>=this.size)
+                        return null;
+                    else
+                        tmpYear += 1;
+                
+                    tmpMonth = 0;
+                }
+                else
+                    tmpMonth +=1;
+            }
+            
+            if(this.year[this.yearIndex(year)].months[month].days[dayGoal].validDay)
+            {
+                rdays[this.year[year].months[month].days[k].dayOfWeek - 1] = this.year[year].months[month].days[k];
+                dayIndex++;
+            }
+            
+        }
+        
+        /*for(int k = (7*week); k < (7*week)+7; k++)
+        {
+                rdays[dayIndex] = this.year[this.yearIndex(year)].months[month].days[k];
+                dayIndex++;
+        }
+        
+         /*if(this.year[year].months[month].days[dayGoal].dayOfWeek != 1)
+        {
+            dayGoal -= this.year[year].months[month].days[dayGoal].dayOfWeek - 1;
+        }
+        
+        
+        
+        if(dayGoal < 0);
+        {
+            if(month<0)
+            {
+                if(year<0)
+                    return null;
+                else
+                    year -= 1;
+                
+                month = 11;
+            }
+            else
+                month -=1;
+        }*/
+        
+        return rdays;
+    }
+    
+    
     public Day getDay(int year, int month, int day)
     {
         return this.year[year].months[month].days[day];
